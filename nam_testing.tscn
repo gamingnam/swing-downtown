@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cdnqieuky7s88"]
+
+[ext_resource type="Script" uid="uid://cjkj78f3ufn27" path="res://player.gd" id="1_0orx7"]
+[ext_resource type="Script" uid="uid://dbr7alwjtsced" path="res://camera.gd" id="1_5x3fb"]
+[ext_resource type="Texture2D" uid="uid://kpqfyas3841l" path="res://icon.svg" id="1_cthya"]
+[ext_resource type="PackedScene" uid="uid://cs7msebiegvgr" path="res://ground.tscn" id="3_3k1jv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3uqs5"]
+width = 64
+height = 64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fswp4"]
+size = Vector2(120, 122)
+
+[node name="NamTesting" type="Node2D" unique_id=1621027311]
+
+[node name="Enemy" type="Sprite2D" parent="." unique_id=1153266426]
+position = Vector2(494, -203)
+texture = SubResource("NoiseTexture2D_3uqs5")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1180232475]
+script = ExtResource("1_0orx7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=33004317]
+texture = ExtResource("1_cthya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=310153116]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_fswp4")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1643047373]
+script = ExtResource("1_5x3fb")
+
+[node name="Ground" parent="." unique_id=1907579114 instance=ExtResource("3_3k1jv")]
+position = Vector2(0, 200)
+
+[node name="Ground2" parent="." unique_id=1837594899 instance=ExtResource("3_3k1jv")]
+position = Vector2(-216.00002, 40)
+scale = Vector2(1.3199954, 0.19606389)
+
+[node name="Ground3" parent="." unique_id=1481538128 instance=ExtResource("3_3k1jv")]
+position = Vector2(200, -68)
+scale = Vector2(1.3199954, 0.19606389)
+
+[node name="Ground4" parent="." unique_id=1840041804 instance=ExtResource("3_3k1jv")]
+position = Vector2(-216, -164)
+scale = Vector2(1.3199954, 0.19606389)
+
+[node name="LevelGen" type="Node" parent="." unique_id=683075311]
